@@ -827,3 +827,8 @@ body:has(dialog[open]) { overflow: hidden; }   /* la página no se mueve detrás
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* Entrada del inicio con CSS (antes AOS): empieza en el primer pintado, sin esperar al JS */
+.entra { animation: entra .8s cubic-bezier(.22, .61, .36, 1) both; animation-delay: var(--retraso, 0ms); }
+@keyframes entra { from { opacity: 0; transform: translateY(24px); } }
+@media (prefers-reduced-motion: reduce) { .entra { animation: none; } }

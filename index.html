@@ -13,17 +13,19 @@
   <meta property="og:image" content="https://images.unsplash.com/photo-1767396858128-85b1262a7677?auto=format&fit=crop&w=1200&h=630&q=70">
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
 
-  <!-- Tipografías: Bodoni Moda (títulos, estilo revista de moda) + Manrope (texto) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com">
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,500;1,6..96,600&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <!-- Tipografías alojadas aquí (sin ir a Google): el título se pinta antes -->
+  <link rel="preload" href="fonts/g/bodonimoda-v28-aftq7pxzy382xsxx63luyjskskg-woff2.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/fuentes.css">
 
   <!-- Librerías: Phosphor Icons (íconos) + AOS (animaciones al hacer scroll) -->
-  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
-  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+  <link rel="stylesheet" href="vendor/aos/aos.css">
 
+  <!-- Los scripts del final se piden ya: así llenan la página antes del primer pintado -->
+  <link rel="preload" href="vendor/aos/aos.js" as="script">
+  <link rel="preload" href="js/config.js" as="script">
+  <link rel="preload" href="js/main.js" as="script">
+  <link rel="stylesheet" href="css/iconos.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -79,13 +81,13 @@
       <div class="container hero__grid">
         <div class="hero__texto">
           <a class="rating" id="rating" href="#opiniones"></a>
-          <h1 data-aos="fade-up">Ropa <em>fresca</em> para el calor de la selva</h1>
-          <p class="hero__sub" data-aos="fade-up" data-aos-delay="100">Vestidos de lino, blusas con estampados tropicales y pantalones que respiran. Elige tu talla, arma tu bolsa y confírmala por WhatsApp.</p>
-          <div class="hero__acciones" data-aos="fade-up" data-aos-delay="200">
+          <h1 class="entra">Ropa <em>fresca</em> para el calor de la selva</h1>
+          <p class="entra hero__sub" style="--retraso: 100ms">Vestidos de lino, blusas con estampados tropicales y pantalones que respiran. Elige tu talla, arma tu bolsa y confírmala por WhatsApp.</p>
+          <div class="entra hero__acciones" style="--retraso: 200ms">
             <a class="btn btn--primario btn--lg" href="#coleccion"><i class="ph ph-coat-hanger" aria-hidden="true"></i>Ver la colección</a>
             <a class="btn btn--borde btn--lg" href="#looks"><i class="ph ph-sparkle" aria-hidden="true"></i>Looks armados</a>
           </div>
-          <ul class="hero__trust" data-aos="fade-up" data-aos-delay="300">
+          <ul class="entra hero__trust" style="--retraso: 300ms">
             <li class="estado" id="estado"></li>
             <li><i class="ph ph-truck" aria-hidden="true"></i>Envíos a todo el Perú</li>
             <li><i class="ph ph-arrows-clockwise" aria-hidden="true"></i><span>Cambios en <span id="cambios-dias"></span> días</span></li>
@@ -163,7 +165,7 @@
         <header class="seccion__head" data-aos="fade-up">
           <span class="eyebrow">Colección Primavera 2026</span>
           <h2>Elige tu prenda, tu color y <em>tu talla</em></h2>
-          <p>Toca una prenda para ver sus colores y tallas disponibles. Guarda tus favoritas con el <i class="ph-fill ph-heart" aria-label="corazón"></i>.</p>
+          <p>Toca una prenda para ver sus colores y tallas disponibles. Guarda tus favoritas con el <i class="ph-fill ph-heart" role="img" aria-label="corazón"></i>.</p>
         </header>
 
         <div class="barra-filtros">
@@ -511,7 +513,7 @@
   <!-- ============ AVISO (toast) ============ -->
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="vendor/aos/aos.js"></script>
   <script src="js/config.js"></script>
   <script src="js/main.js"></script>
   <script src="js/demo-aviso.js"></script>
